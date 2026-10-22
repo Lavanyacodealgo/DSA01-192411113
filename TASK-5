@@ -1,1 +1,31 @@
-Operators and Precedence
+TASK 5 – Write Correct Expressions with the Right Precedence
+
+1. Peak-Hour Check, Surcharge and Concession
+The peak-hour condition is:
+`(hour >= 8 && hour < 10) || (hour >= 17 && hour < 20)`
+This checks whether the hour is from 8 AM to before 10 AM, or from 5 PM to before 8 PM. The parentheses make the logic easier to understand.
+The surcharge can be calculated using integer arithmetic:
+`fare = baseFare + (baseFare * 20 / 100)`
+For a concession, a conditional expression can be used:
+`fare = eligible ? discountedFare : baseFare`
+Here, `eligible` decides whether the passenger receives a concession.
+
+2. Operator Precedence and Associativity
+Operator precedence decides which operation is performed first. For example, multiplication has higher precedence than addition, so `5 + 3 * 2` gives `11`. Parentheses change the order: `(5 + 3) * 2` gives `16`.
+The conditional operator `?:` selects one of two values depending on a condition. Compound assignment such as `k += i` adds `i` to `k` and stores the result in `k`.
+
+3. Difference Between x++ and ++x
+`x++` is post-increment: it uses the current value before incrementing it. `++x` is pre-increment: it increments the variable before using its value.
+In `x++ + ++y`, the old value of `x` and the new value of `y` are added. Writing `i = i++` should be avoided because it is confusing and does not reliably express the programmer's intended update.
+
+4. Division and Remainder with Negative Operands
+Integer division truncates the fractional part toward zero. Therefore, `10 / 3` gives `3`, and `-10 / 3` gives `-3`.
+The remainder is calculated from the same division. Thus, `10 % 3` gives `1`, and `-10 % 3` gives `-1` in C++.
+
+5. Alternative Concept and Complexity Analysis
+A peak-hour lookup table such as `bool peak[24]` could store whether each hour is peak or off-peak. Checking `peak[hour]` takes O(1) time, just like the logical expression, but uses extra space for 24 Boolean entries.
+The logical expression needs no additional lookup-table storage and clearly shows the time ranges. A lookup table may be easier to maintain if many irregular time periods are added.
+The given program uses a fixed number of variables and operations, so its time complexity is O(1) and its space complexity is O(1).
+
+Conclusion
+Using parentheses, correct operator precedence and clear expressions prevents errors in fare calculations. A readable peak-hour condition and integer arithmetic help ensure the fare system behaves correctly.
