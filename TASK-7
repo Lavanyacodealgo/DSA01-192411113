@@ -1,1 +1,17 @@
-Procedural versus Object-Oriented Programming
+Task 7: Procedural vs Object-Oriented Programming
+
+1. Procedural Programming
+Procedural programming uses functions to perform operations on data. The card balance is stored in a variable and modified using functions.
+
+2. Object-Oriented Programming
+OOP combines data and functions inside a class. In the SmartCard class, the balance is declared `private` and can be accessed only through public member functions.
+
+3. Comparison
+- **Data security:** OOP provides better protection using private data.
+- **Code reuse:** OOP supports reusable classes and objects.
+- **Maintenance:** OOP is easier to maintain when the system grows.
+- **Procedural approach:** Simple and suitable for small programs.
+- **OOP approach:** Suitable for a metro smart-card system with multiple cards and passengers.
+
+4. Conclusion
+OOP is preferred for the Metro Smart-Card System because encapsulation protects the balance and makes the program easier to extend.
