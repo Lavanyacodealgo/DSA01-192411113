@@ -1,1 +1,11 @@
-Re-evaluate and Adapt the Design
+Task 12: Extended Metro Fare System
+1. Airport Zone
+An Airport Zone is added with a base fare of ₹60. The fare table must support the additional zone.
+2. Weekend Discount
+A 10% discount is applied to eligible weekend journeys. The weekend discount cannot be combined with the peak surcharge. Therefore, weekend journeys receive the discount instead of the peak surcharge.
+3. Monthly Pass
+A monthly pass allows unlimited journeys within two selected zones. The system checks whether the journey's zone is included in the pass before charging the normal fare.
+4. Validation
+The system validates the zone, time, balance, and selected pass zones. Money is stored in integer paise to avoid floating-point rounding errors.
+5. Conclusion
+The extended system supports airport travel, weekend discounts, and monthly passes while maintaining fare accuracy and minimum-balance validation for journeys charged a fare.
