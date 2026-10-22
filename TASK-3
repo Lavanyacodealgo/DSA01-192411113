@@ -1,1 +1,36 @@
-Data Types and Type Compatibility
+TASK 3 – Choose Data Types and Check Type Compatibility
+1. Selection of Data Types
+The metro fare system uses different C++ data types according to the kind of value stored.
+
+bool:Used for conditions such as whether a journey is during peak hours.
+char:Used to store a single character, such as a zone code.
+int:Used for zone numbers, hours, surcharge percentages and individual fare values in paise.
+long long:Used for card balances and total collections in paise because these values may become very large.
+unsigned:Can represent non-negative journey counts, provided negative values are rejected before conversion.
+float:Uses less precision and is not suitable for storing exact money values.
+double:Used for measurements and calculations that need decimal values, but not preferred for exact monetary totals.
+auto:Allows the compiler to infer a variable's type from its initial value.
+The `sizeof` operator gives the size of a type in bytes. The exact sizes of some types depend on the compiler and system.
+
+2. Why Money Should Be Stored in Integer Paise
+Money should be stored as integer paise instead of `double` rupees because floating-point numbers may introduce rounding errors. For example, repeated additions of ₹0.10 using `double` may not produce an exactly equal result to the expected decimal value.
+Instead, ₹10 is stored as 1000 paise and ₹20 as 2000 paise. Integer arithmetic provides exact results for these amounts and avoids rounding errors during fare calculations.
+
+3. Type Compatibility
+C++ can convert values between compatible types automatically.
+An `int` and an `int` normally produce an integer result in division. For example, `7 / 2` gives `3`. If one operand is converted to `double`, the result can be `3.5`.
+A `bool` value can be converted to an integer: `true` becomes `1` and `false` becomes `0`. When an integer is converted to `bool`, zero becomes `false` and non-zero becomes `true`.
+Conversions between signed and unsigned integers can produce unexpected comparison results. Explicit casts and suitable type choices help avoid such errors.
+
+4. Integer Range and Daily Collection
+The `<climits>` header provides limits such as `INT_MAX` and `LLONG_MAX`.
+A typical 32-bit `int` has a maximum value of 2,147,483,647. If three million journeys each cost ₹30, the total is ₹90,000,000, or 9,000,000,000 paise. This total exceeds the typical `int` limit when stored in paise.
+Therefore, `long long` is a safer choice for storing large total collections in paise.
+
+5. Alternative Concept and Complexity Analysis
+If money were stored as `double` rupees, the program would use decimal arithmetic, but small floating-point errors could accumulate when many fares are added. Integer paise avoids these errors for whole-paise amounts.
+Adding one value takes O(1) time in both approaches. A `double` and a `long long` commonly use 8 bytes each on modern systems, although the actual size should be verified using `sizeof`.
+The rounding error from floating-point addition depends on the values and the order of operations. It should be measured by comparing the actual total with an integer-paise total.
+
+Conclusion
+Integer paise stored in `long long` is recommended for card balances and large fare totals. Appropriate types, range checks and explicit conversions help make the metro fare system accurate and reliable.
