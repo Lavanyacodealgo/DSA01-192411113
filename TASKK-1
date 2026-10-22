@@ -1,1 +1,40 @@
 Task 1: Understand the Problem and Identify the Objects
+1. Object-Oriented Analysis
+The City Metro Smart-Card System calculates the fare based on the travel zone and time of travel. The system has five main objects: SmartCard, Passenger, Journey, Zone and FareTable.
+SmartCard:It stores the card ID and balance in integer paise. Its behaviours include checking the balance, recharging the card and deducting the fare. It is important because it manages the passenger's money and ensures that the minimum balance rule is followed.
+Passenger:It stores passenger details such as passenger ID and name. Its behaviours include using the smart card and travelling by metro. It represents the person who uses the metro service.
+Journey:It stores journey details such as the source zone, destination zone, travel time and fare. Its behaviours include calculating the fare and validating the journey. It is required to determine the correct fare for each trip.
+Zone:It stores the zone name and base fare. Its behaviour is to provide the fare for the selected zone. The Inner Zone costs ₹10, the Middle Zone costs ₹20 and the Outer Zone costs ₹30.
+FareTable:It stores the fares for different zones and the peak-hour surcharge. Its behaviours include retrieving the base fare and applying the surcharge. Keeping fare rules in one place makes future changes easier.
+
+2. Procedural Programming and Object-Oriented Programming
+In procedural programming, the system would use global variables to store the balance and zone fares, along with separate functions such as `calculateFare()`, `checkBalance()` and `deductFare()`. If a fare rule changes, several functions may need to be modified.
+In object-oriented programming, the data and related functions are grouped into classes such as `SmartCard`, `Journey` and `FareTable`. This approach improves code organization, protects data and makes the system easier to maintain and extend.
+
+3. Basic Principles of OOP
+Encapsulation:The card balance is kept private inside the SmartCard class. It can be accessed or modified through methods such as `getBalance()`, `recharge()` and `deductFare()`. This prevents uncontrolled changes to the balance.
+Abstraction:The user can call a method such as `calculateFare()` without knowing all the internal fare-calculation steps. This hides unnecessary implementation details.
+Inheritance:A `MonthlyPassCard` class could inherit common properties and behaviours from a general `SmartCard` class. This can help when additional card types are introduced.
+Polymorphism:Different card types could implement a common fare-calculation method differently. For example, a regular card and a monthly pass card may calculate payable fares in different ways.
+These principles help make the system secure, reusable and easier to maintain.
+
+4. Rules for a Correct Journey
+1. The Inner Zone fare is ₹10, the Middle Zone fare is ₹20 and the Outer Zone fare is ₹30.
+2. A 20% surcharge is applied during peak hours, from 8 AM to 10 AM and from 5 PM to 8 PM.
+3. After deducting the fare, the remaining balance must be at least ₹50.
+4. If the remaining balance would be below ₹50, the journey must be rejected.
+5. Invalid zone selections and invalid time inputs must be rejected.
+6. Money must be stored as integer paise instead of floating-point values to avoid rounding errors.
+7. The fare must be calculated and validated before the card balance is deducted.
+These rules ensure that fares are calculated correctly and that the smart card always follows the minimum balance requirement.
+
+5. Alternative Concept and Complexity Analysis
+In a purely procedural solution, global variables would store the card balance and zone fares. Free functions would calculate the fare, check the balance and deduct the amount. This approach can work correctly, but as the system grows, changes to fare rules may require modifications in multiple functions.
+In the object-oriented solution, classes keep related data and behaviours together. If a fare changes, the relevant fare table or fare-calculation method can usually be updated without changing unrelated parts of the program.
+The time complexity per journey is **O(1)** in both approaches because each journey requires a fixed number of operations. The memory complexity per card is also **O(1)** because each card stores a fixed amount of information. Therefore, the object-oriented approach does not necessarily improve time or memory complexity, but it improves organization and maintainability.
+
+Conclusion
+Object-oriented programming is suitable for the Metro Smart-Card System because it separates responsibilities, protects card data and supports future changes. Every journey must follow the fare rules, use valid inputs and leave a minimum balance of ₹50 after fare deduction.
+
+
+
