@@ -1,1 +1,28 @@
-Control Structures
+TASK 6 – Design the Control Structures
+
+1. Use of Control Structures
+The `if-else` statement is used to check conditions, such as whether a journey is allowed based on the remaining balance. The `switch` statement is suitable for selecting the base fare according to the zone. The conditional operator `?:` can be used for simple decisions, but `if-else` is clearer when several statements are required.
+A normal `for` loop is useful when the number of journeys is known. A range-based `for` loop is suitable for processing every journey in an array or collection. A `while` loop is useful when journeys continue until a condition becomes false. In this program, a range-based `for` loop is suitable because the trips are stored in an array.
+The `continue` statement can skip an invalid journey and proceed to the next trip. The `break` statement can stop a loop or exit a `switch` case. Every valid `switch` case should use `break` to prevent accidental fall-through. A `default` case handles an invalid zone.
+
+2. Pseudocode
+Algorithm: Calculate Fare and Process Journeys
+1. Start.
+2. Set the card balance to 10000 paise.
+3. Store the journeys with their zone and peak-hour status.
+4. For each journey:
+   - Select the base fare using the zone.
+   - If the zone is invalid, skip the journey.
+   - If it is a peak-hour journey, add 20% to the base fare.
+   - Check whether the balance after payment will be at least 5000 paise.
+   - If allowed, deduct the fare and display the fare and remaining balance.
+   - Otherwise, display a low-balance message without changing the balance.
+5. Repeat until all journeys have been processed.
+6. Stop.
+
+3. Alternative Concept and Complexity Analysis
+The base fare can be selected using a `switch` statement or an array indexed by the zone. Both approaches provide O(1) lookup time. A `switch` statement clearly expresses each zone's fare, while an array can make adding zones easier if the zone values are mapped safely to array indexes.
+The program processes each journey once, so processing `n` journeys takes O(n) time. The fare calculation for one journey takes O(1) time. The given fixed-size trip array uses O(1) space; if the number of journeys grows with `n`, storing all journeys requires O(n) space.
+
+Conclusion
+The program uses `switch` for zone-based fare selection, `if-else` for journey validation, and a range-based `for` loop to process the trips. Integer paise keeps the fare calculations exact.
