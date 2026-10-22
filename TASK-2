@@ -1,1 +1,31 @@
-Tokens, Keywords, Identifiers and Constants
+TASK-2 Tokens, Keywords, Identifiers and Constants
+1. Tokens in C++
+Tokens are the smallest individual elements of a C++ program. The five kinds of tokens are:
+1.Keywords:Reserved words with special meanings, such as `int`, `class`, `if` and `return`.
+2.Identifiers:Names given to variables, classes and functions, such as `innerFarePaise`, `SmartCard` and `calculateFare`.
+3.Constants:Fixed values that do not change, such as `1000`, `2000` and `5000`.
+4. Operators:Symbols used to perform operations, such as `+`, `-`, `*` and `==`.
+5. Punctuators:Symbols that structure a program, such as `{ }`, `( )`, `;` and `,`.
+
+2. Constants in C++
+The `#define` directive creates a macro that replaces text before compilation. It does not provide normal C++ type checking or namespace scope.
+The `const` keyword declares a value that cannot be modified after initialization.
+The `constexpr` keyword declares a value that can be evaluated at compile time when its initialization meets the requirements.
+For the metro fare system, `constexpr` is preferred for fixed fares and limits because it supports type checking and compile-time evaluation. All fare values can be maintained in one place, making revisions easier.
+
+3. enum and enum class
+An ordinary `enum` defines named values but can allow implicit conversion to an integer.
+An `enum class` defines scoped enumeration values and does not implicitly convert them to integers. Therefore, it is safer and helps prevent accidental mixing of zone values with unrelated integers.
+For example, `Zone::Inner` clearly identifies the Inner Zone.
+
+4. Naming Rules and Conventions
+Identifiers must not contain spaces, must not begin with a digit and must not be C++ keywords. Names are case-sensitive.
+Meaningful names such as `innerFarePaise`, `peakSurchargePercent` and `minimumBalancePaise` make the program easier to understand. Constants are commonly written in uppercase with underscores or in descriptive camelCase.
+
+5. Alternative Concept and Complexity Analysis
+If `#define` macros were used instead of `constexpr` constants and `enum class`, the program would lose some type safety and scope protection. Macros perform text substitution, whereas `constexpr` values are checked by the compiler and can be scoped.
+A macro occupies no storage by itself. A `constexpr` value usually requires no separate runtime storage when optimized, although storage may be required in some situations.
+Both approaches generally have no meaningful effect on fare-calculation running time because the values are fixed. The main advantage of `constexpr` and `enum class` is safer, clearer and more maintainable code.
+
+Conclusion
+The metro fare system should use `constexpr` for fixed fare values and limits and `enum class` for zones. This keeps the fare definitions in one place and improves type safety and readability.
