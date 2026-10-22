@@ -1,1 +1,28 @@
-Implicit Conversions
+TASK 4 – Control Implicit Conversions
+
+1. Meaning of Implicit Conversion
+Implicit conversion occurs when C++ automatically changes a value from one data type to another without an explicit cast. It can make programs convenient to write, but it may also cause unexpected results.
+
+2. Integer Division and Integer-to-Double Conversion
+In the expression `double c = a / b`, both `a` and `b` are integers. Therefore, `7 / 2` produces `3` through integer division. Assigning the result to `double` converts `3` to `3.0`.
+In `double d = static_cast<double>(a) / b`, `a` is converted to `double` before division. Therefore, the result is `3.5`.
+
+3. Character and Boolean Conversions
+The expression `'A' + 2` converts the character `'A'` to its integer character code, adds 2, and converts the result back to `char`, producing `C`.
+In `ch + 1`, the character is promoted to an integer, so the output is its numeric character code plus 1.
+The statement `bool flag = 5` converts the non-zero integer `5` to `true`. By default, `true` is printed as `1`. The manipulator `std::boolalpha` prints it as `true`.
+
+4. Signed and Unsigned Comparison
+The program compares `int s = -1` with `unsigned int u = 1`. During the comparison, `s` is converted to an unsigned integer. The converted value is very large, so the condition `s < u` is false, and the program prints `s >= u`.
+A compiler warning may appear because comparing signed and unsigned values can produce unexpected results.
+
+5. Narrowing Conversions and static_cast
+A narrowing conversion may lose information. For example, `int x{3.7};` is rejected by the compiler because brace initialization prevents this narrowing conversion.
+An explicit cast such as `static_cast<double>(a)` makes the intended conversion clear and ensures that the division uses floating-point arithmetic.
+
+6. Alternative Concept and Complexity Analysis
+If all conversions were written explicitly using `static_cast` and brace initialization, the program would make the intended types clearer and catch some narrowing errors during compilation. However, explicit casts must be used carefully because they can still permit unwanted conversions.
+The program performs a fixed number of operations, so its time complexity is O(1). Its space complexity is also O(1), because it uses a fixed number of variables. Explicit casts and brace initialization generally do not change the asymptotic running time or memory usage.
+
+Conclusion
+Implicit conversions can cause unexpected results in division, character arithmetic, Boolean values and signed–unsigned comparisons. Using explicit casts and brace initialization where appropriate improves the clarity and safety of C++ programs.
