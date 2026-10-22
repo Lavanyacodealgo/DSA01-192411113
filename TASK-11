@@ -1,1 +1,14 @@
-Recommend and Defend the Final Design
+Task 11: Final Design Recommendation
+
+1. Recommended Design
+I recommend an object-oriented design using a `SmartCard` class, a `FareTable`, and a `Journey` record. The `SmartCard` class stores the balance privately and provides functions to calculate and deduct fares safely.
+2. Money Representation
+All money values should be stored as integer paise using `long long`. This avoids floating-point rounding errors and supports large totals.
+3. Fare Calculation
+The system should use clear functions to calculate the base fare, determine peak hours, apply the surcharge, and check the minimum remaining balance before deducting a fare.
+4. Configuration-File Alternative
+Instead of hardcoding all fare values, the system could load zone fares and surcharge percentages from a configuration file. This would make fare changes easier without modifying the main program. The program must validate configuration values before using them.
+5. Complexity
+For a single journey, fare calculation and balance validation take O(1) time and O(1) additional space. Processing n journeys takes O(n) time.
+6. Conclusion
+An object-oriented design with private balance data, integer-paise calculations, input validation, and configurable fare values is suitable for a maintainable Metro Smart-Card System.
