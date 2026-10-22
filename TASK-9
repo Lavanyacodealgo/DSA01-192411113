@@ -1,1 +1,14 @@
-Implement and Test the Fare Logic
+Task 9: Complete Fare Logic and Testing
+1. Fare Rules
+- Inner Zone: ₹10
+- Middle Zone: ₹20
+- Outer Zone: ₹30
+- Peak hours: 8 AM–10 AM and 5 PM–8 PM
+- Peak surcharge: 20%
+- Minimum balance after a journey: ₹50
+2. Validation
+The program validates the zone, hour, and balance before processing a journey. It rejects invalid zones, invalid hours, and negative balances.
+3. Boundary Testing
+The program tests hours 8, 10, 17, and 20 to verify the beginning and ending of peak periods.
+4. Conclusion
+Boundary testing and input validation help ensure that the fare is calculated correctly and that a journey is approved only when the required minimum balance remains
