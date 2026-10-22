@@ -1,1 +1,12 @@
-Compare Expectations with Execution
+Task 10: Double vs Integer-Paise Calculations
+1. Double
+The `double` data type stores decimal values. Some decimal amounts cannot be represented exactly in binary floating-point, which may cause small rounding errors.
+
+2. Integer Paise
+Integer paise stores money as whole-number units. For example, ₹10 is stored as 1000 paise. This avoids floating-point rounding errors when calculating fares in paise.
+
+3. Integer Overflow
+An `int` has a limited range. If a calculation exceeds its representable range, it can produce incorrect results or undefined behaviour for signed integer overflow. A `long long` can store much larger totals.
+
+4. Conclusion
+Integer paise using `long long` is recommended for the Metro Smart-Card System because it provides precise fare calculations and supports large totals.
