@@ -1,1 +1,11 @@
-Read and Print Data Safely
+Task 8: Safe Input Validation
+1. cin.fail()
+It checks whether an input operation has failed, such as when the user enters letters instead of a number.
+2. cin.clear()
+It clears the error state of the input stream so that input can continue.
+3. cin.ignore()
+It removes unwanted characters from the input buffer.
+4. iomanip
+The `iomanip` header provides formatting tools such as `fixed` and `setprecision()` to display money with two decimal places.
+Conclusion
+Input validation prevents invalid values from being processed and improves the reliability of the Metro Smart-Card System.
